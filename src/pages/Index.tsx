@@ -296,44 +296,35 @@ const Index = () => {
 
 
 
-               <form 
-  action="mailto:deepak2004ps@outlook.com" 
-  method="POST" 
-  encType="text/plain"
-  className="space-y-6"
->
-  <div className="grid md:grid-cols-2 gap-4">
-    <Input 
-      name="Name"
-      placeholder="Your Name" 
-      required 
-      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
-    />
-    <Input 
-      name="Email"
-      type="email" 
-      placeholder="Your Email" 
-      required 
-      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
-    />
-  </div>
-  <Textarea 
-    name="Message"
-    placeholder="Your Message" 
-    required 
-    rows={4}
-    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
-  />
-  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-    <Send className="mr-2 h-4 w-4" />
-    Send Message
-  </Button>
-</form>
-
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input 
+                      placeholder="Your Name" 
+                      required 
+                      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                    <Input 
+                      type="email" 
+                      placeholder="Your Email" 
+                      required 
+                      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </div>
+                  <Textarea 
+                    placeholder="Your Message" 
+                    required 
+                    rows={4}
+                    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Send className="mr-2 h-4 w-4" />
+                    Send Message
+                  </Button>
+                </form>
                 
 
 
-
+                
                 <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-white/10">
                   <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
                     <Github className="h-5 w-5" />
