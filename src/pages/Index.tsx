@@ -1,12 +1,349 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState, useEffect } from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { 
+  Moon, Sun, Download, Mail, Github, Linkedin, ExternalLink, 
+  Code, Brain, Smartphone, Database, Server, Globe,
+  ChevronDown, Send, MapPin, Calendar
+} from 'lucide-react';
 
 const Index = () => {
+  const [isDark, setIsDark] = useState(true);
+  const [isVisible, setIsVisible] = useState({});
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Set dark mode by default
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [isDark]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[id]').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const skills = [
+    { name: 'JavaScript', level: 90, icon: '🟨' },
+    { name: 'Python', level: 85, icon: '🐍' },
+    { name: 'React', level: 88, icon: '⚛️' },
+    { name: 'Node.js', level: 82, icon: '🟢' },
+    { name: 'MongoDB', level: 80, icon: '🍃' },
+    { name: 'TensorFlow', level: 75, icon: '🧠' },
+    { name: 'Scikit-learn', level: 78, icon: '📊' },
+    { name: 'HTML/CSS', level: 95, icon: '🎨' }
+  ];
+
+  const projects = [
+    {
+      title: 'AI Chatbot with Gemini API',
+      description: 'Intelligent conversational AI built with Google\'s Gemini API, featuring natural language processing and contextual responses.',
+      tech: ['JavaScript', 'Gemini API', 'React', 'Node.js'],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Hotel Room Booking System',
+      description: 'Full-stack booking platform integrated with PhonePe payment gateway for seamless transactions and room management.',
+      tech: ['MERN Stack', 'PhonePe API', 'JWT', 'MongoDB'],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Student Record Management',
+      description: 'Comprehensive MERN stack application for managing student records with CRUD operations and authentication.',
+      tech: ['MongoDB', 'Express', 'React', 'Node.js'],
+      github: '#',
+      live: '#'
+    },
+    {
+      title: 'Flask Web Application',
+      description: 'Responsive web application developed during internship, featuring modern UI and efficient backend architecture.',
+      tech: ['Flask', 'Python', 'HTML', 'CSS', 'SQLite'],
+      github: '#',
+      live: '#'
+    }
+  ];
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    toast({
+      title: "Message Sent!",
+      description: "Thanks for reaching out. I'll get back to you soon!",
+    });
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-xl font-bold gradient-text">Deepak</div>
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsDark(!isDark)}
+              className="text-white hover:bg-white/10"
+            >
+              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen flex items-center justify-center section-padding pt-20">
+        <div className={`text-center space-y-6 animate-fade-in ${isVisible.hero ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+              Hi, I'm <span className="gradient-text">Deepak</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+              MCA Student | Web & ML Developer
+            </p>
+            <p className="text-lg text-gray-400 max-w-xl mx-auto italic">
+              "Building smart web apps with clean code and chaotic curiosity."
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Download className="mr-2 h-4 w-4" />
+              Download Resume
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+              <Mail className="mr-2 h-4 w-4" />
+              Let's Connect
+            </Button>
+          </div>
+          
+          <div className="mt-16 animate-bounce-subtle">
+            <ChevronDown className="h-6 w-6 text-white/60 mx-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="section-padding bg-black/20">
+        <div className="container mx-auto">
+          <div className={`grid md:grid-cols-2 gap-12 items-center animate-slide-up ${isVisible.about ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="space-y-6">
+              <h2 className="text-4xl font-bold text-white mb-6">About Me</h2>
+              <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+                <p>
+                  I'm an emotionally intelligent techie who thrives on blending code, chaos, and curiosity. 
+                  As an MCA student specializing in Web Development and Machine Learning, I believe in 
+                  creating solutions that are not just functional, but intuitive and impactful.
+                </p>
+                <p>
+                  My journey involves transforming complex problems into elegant solutions, whether it's 
+                  building responsive web applications or developing intelligent ML models. I'm passionate 
+                  about the intersection of technology and human experience.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex justify-center">
+              <div className="glass-card p-8 rounded-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="w-64 h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <div className="text-8xl">👨‍💻</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-white text-center mb-12">Skills & Technologies</h2>
+          
+          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up ${isVisible.skills ? 'opacity-100' : 'opacity-0'}`}>
+            {skills.map((skill, index) => (
+              <Card key={skill.name} className="glass-card border-white/10 hover:border-blue-500/50 transition-all duration-300 group">
+                <CardContent className="p-6 text-center">
+                  <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                    {skill.icon}
+                  </div>
+                  <h3 className="text-white font-semibold mb-2">{skill.name}</h3>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
+                    <div 
+                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                  <span className="text-gray-400 text-sm">{skill.level}%</span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="section-padding bg-black/20">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-white text-center mb-12">Featured Projects</h2>
+          
+          <div className={`grid md:grid-cols-2 gap-8 animate-slide-up ${isVisible.projects ? 'opacity-100' : 'opacity-0'}`}>
+            {projects.map((project, index) => (
+              <Card key={project.title} className="glass-card border-white/10 hover:border-blue-500/50 transition-all duration-300 group">
+                <CardHeader>
+                  <CardTitle className="text-white group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                      <Github className="mr-2 h-4 w-4" />
+                      Code
+                    </Button>
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-white text-center mb-12">Experience</h2>
+          
+          <div className={`max-w-3xl mx-auto animate-slide-up ${isVisible.experience ? 'opacity-100' : 'opacity-0'}`}>
+            <Card className="glass-card border-white/10">
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <CardTitle className="text-white text-xl">Web Development Intern</CardTitle>
+                    <CardDescription className="text-blue-400 text-lg font-semibold">
+                      Zerame Infotech, Coimbatore
+                    </CardDescription>
+                  </div>
+                  <Badge className="bg-green-500/20 text-green-300 border-green-500/30">
+                    <Calendar className="mr-1 h-3 w-3" />
+                    1 Month
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-gray-300">
+                    Gained hands-on experience in web development, working extensively with Flask web applications 
+                    and creating responsive user interfaces using HTML & CSS. Collaborated with the development 
+                    team to deliver high-quality web solutions.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Flask</Badge>
+                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Python</Badge>
+                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">HTML/CSS</Badge>
+                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Responsive Design</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section-padding bg-black/20">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-white text-center mb-12">Get In Touch</h2>
+          
+          <div className={`max-w-2xl mx-auto animate-slide-up ${isVisible.contact ? 'opacity-100' : 'opacity-0'}`}>
+            <Card className="glass-card border-white/10">
+              <CardHeader className="text-center">
+                <CardTitle className="text-white">Let's Build Something Amazing Together</CardTitle>
+                <CardDescription className="text-gray-400">
+                  Have a project in mind? I'd love to hear from you!
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input 
+                      placeholder="Your Name" 
+                      required 
+                      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                    <Input 
+                      type="email" 
+                      placeholder="Your Email" 
+                      required 
+                      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </div>
+                  <Textarea 
+                    placeholder="Your Message" 
+                    required 
+                    rows={4}
+                    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Send className="mr-2 h-4 w-4" />
+                    Send Message
+                  </Button>
+                </form>
+                
+                <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-white/10">
+                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                    <Github className="h-5 w-5" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                    <Linkedin className="h-5 w-5" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                    <Mail className="h-5 w-5" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 border-t border-white/10">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-400">
+            © 2024 Deepak. Built with ❤️ using React & Tailwind CSS
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
