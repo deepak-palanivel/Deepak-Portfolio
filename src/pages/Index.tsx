@@ -58,25 +58,25 @@ const Index = () => {
       live: '#'
     },
     {
-      title: 'Hotel Room Booking System',
-      description: 'Full-stack booking platform integrated with PhonePe payment gateway for seamless transactions and room management.',
-      tech: ['MERN Stack', 'PhonePe API', 'JWT', 'MongoDB'],
-      github: '#',
-      live: '#'
+      title: 'Fully Functional Matrimony Site',
+      description: 'A complete matrimony platform built with Apache, PHP, MySQL, and WordPress. Features user registration, profile management, search, and matchmaking. Deployed and live for real-world use.',
+      tech: ['Apache', 'PHP', 'MySQL', 'WordPress'],
+      github: 'http://sendhurvelanmatrimony.com/',
+      live: 'http://sendhurvelanmatrimony.com/'
     },
     {
-      title: 'Student Record Management',
-      description: 'Comprehensive MERN stack application for managing student records with CRUD operations and authentication.',
-      tech: ['MongoDB', 'Express', 'React', 'Node.js'],
-      github: '#',
-      live: '#'
+      title: 'Railway Pass Booking Web App',
+      description: 'A simple, static web-based front-end concept simulating the experience of booking a railway pass. Pure HTML, IRCTC-inspired UI, responsive design, and custom imagery. Great for beginners and UI/UX showcases.',
+      tech: ['HTML','css', 'Tailwind CSS', 'Responsive Design', 'UI/UX'],
+      github: 'https://github.com/Deepakps2004/Railwaypass_booking',
+      live: 'https://github.com/Deepakps2004/Railwaypass_booking'
     },
     {
-      title: 'Flask Web Application',
-      description: 'Responsive web application developed during internship, featuring modern UI and efficient backend architecture.',
-      tech: ['Flask', 'Python', 'HTML', 'CSS', 'SQLite'],
-      github: '#',
-      live: '#'
+      title: 'Student Connected Learning Platform',
+      description: 'A React Native and Firebase based platform for students to connect, collaborate, and learn together. Features include real-time chat, resource sharing, and personalized learning tools.',
+      tech: ['React Native', 'Firebase'],
+      github: 'https://github.com/Deepakps2004/onespot',
+      live: 'https://github.com/Deepakps2004/onespot'
     }
   ];
 
@@ -123,14 +123,23 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-              <Mail className="mr-2 h-4 w-4" />
-              Let's Connect
-            </Button>
+            <a
+              href="https://drive.google.com/file/d/16JxL86v1MOcAh1xC9Y79rQZnsjeHUs8i/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Download className="mr-2 h-4 w-4" />
+                Download Resume
+              </Button>
+            </a>
+
+            <a href="mailto:deepakexplorer2004@gmail.com">
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                <Mail className="mr-2 h-4 w-4" />
+                Let's Connect
+              </Button>
+            </a>
           </div>
           
           <div className="mt-16 animate-bounce-subtle">
@@ -222,14 +231,62 @@ const Index = () => {
                     ))}
                   </div>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </Button>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </Button>
+                    {project.title === 'AI Chatbot with Gemini API' ? (
+                      <a
+                        href="https://github.com/Deepakps2004/Ai_chatbot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </Button>
+                      </a>
+                    ) : project.title === 'Hotel Room Booking System' ? (
+                      <a
+                        href="https://github.com/Deepakps2004/Railwaypass_booking"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </Button>
+                      </a>
+                    ) : project.title === 'Fully Functional Matrimony Site' ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </Button>
+                      </a>
+                    ) : (
+                      <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </Button>
+                    )}
+                    {project.title === 'Fully Functional Matrimony Site' ? (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Live Demo
+                        </Button>
+                      </a>
+                    ) : (
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Live Demo
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -326,15 +383,21 @@ const Index = () => {
 
                 
                 <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-white/10">
-                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                    <Github className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                    <Linkedin className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                    <Mail className="h-5 w-5" />
-                  </Button>
+                  <a href="https://github.com/Deepakps2004" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                      <Github className="h-5 w-5" />
+                    </Button>
+                  </a>
+                  <a href="https://www.linkedin.com/in/deepakps1/" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                      <Linkedin className="h-5 w-5" />
+                    </Button>
+                  </a>
+                  <a href="mailto:deepak2004ps@outlook.com">
+                    <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                      <Mail className="h-5 w-5" />
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -346,7 +409,7 @@ const Index = () => {
       <footer className="py-8 border-t border-white/10">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2024 Deepak. Built with ❤️ using React & Tailwind CSS
+            © 2025 Deepak. Built with ❤️ using React & Next js
           </p>
         </div>
       </footer>
