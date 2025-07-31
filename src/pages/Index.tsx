@@ -124,7 +124,7 @@ const Index = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
-              href="https://drive.google.com/file/d/16JxL86v1MOcAh1xC9Y79rQZnsjeHUs8i/view?usp=sharing"
+              href="https://drive.google.com/file/d/1xGBAcez2SXWTB5yt6bhWwCKF3xif_dK8/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
             >
