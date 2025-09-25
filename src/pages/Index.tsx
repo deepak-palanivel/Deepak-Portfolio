@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,8 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Moon, Sun, Download, Mail, Github, Linkedin, ExternalLink, 
-  Code, Brain, Smartphone, Database, Server, Globe,
-  ChevronDown, Send, MapPin, Calendar
+  ChevronDown, Send, Calendar
 } from 'lucide-react';
 
 const Index = () => {
@@ -18,7 +16,6 @@ const Index = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Set dark mode by default
     document.documentElement.classList.toggle('dark', isDark);
   }, [isDark]);
 
@@ -54,7 +51,7 @@ const Index = () => {
       title: 'AI Chatbot with Gemini API',
       description: 'Intelligent conversational AI built with Google\'s Gemini API, featuring natural language processing and contextual responses.',
       tech: ['JavaScript', 'Gemini API', 'React', 'Node.js'],
-      github: '#',
+      github: 'https://github.com/Deepakps2004/Ai_chatbot',
       live: '#'
     },
     {
@@ -67,7 +64,7 @@ const Index = () => {
     {
       title: 'Railway Pass Booking Web App',
       description: 'A simple, static web-based front-end concept simulating the experience of booking a railway pass. Pure HTML, IRCTC-inspired UI, responsive design, and custom imagery. Great for beginners and UI/UX showcases.',
-      tech: ['HTML','css', 'Tailwind CSS', 'Responsive Design', 'UI/UX'],
+      tech: ['HTML','CSS', 'Tailwind CSS', 'Responsive Design', 'UI/UX'],
       github: 'https://github.com/Deepakps2004/Railwaypass_booking',
       live: 'https://github.com/Deepakps2004/Railwaypass_booking'
     },
@@ -77,6 +74,13 @@ const Index = () => {
       tech: ['React Native', 'Firebase'],
       github: 'https://github.com/Deepakps2004/onespot',
       live: 'https://github.com/Deepakps2004/onespot'
+    },
+    {
+      title: 'AI Resume Builder',
+      description: 'Create professional resumes with AI assistance. Auto-saved progress, AI-enhanced summaries, and live preview for a seamless resume building experience.',
+      tech: ['Next.js', 'Tailwind CSS', 'AI Integration'],
+      github: 'https://ai-resume-builderr.vercel.app/',
+      live: 'https://ai-resume-builderr.vercel.app/'
     }
   ];
 
@@ -89,7 +93,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-rose-900 via-purple-900 to-amber-900">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -112,23 +116,23 @@ const Index = () => {
         <div className={`text-center space-y-6 animate-fade-in ${isVisible.hero ? 'opacity-100' : 'opacity-0'}`}>
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-              Hi, I'm <span className="gradient-text">Deepak</span>
+              Hi, I'm <span className="bg-gradient-to-r from-pink-400 via-orange-300 to-yellow-300 bg-clip-text text-transparent">Deepak</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
               MCA Student | Web & ML Developer
             </p>
-            <p className="text-lg text-gray-400 max-w-xl mx-auto italic">
+            <p className="text-lg text-gray-300 max-w-xl mx-auto italic">
               "Building smart web apps with clean code and chaotic curiosity."
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a
-              href="https://drive.google.com/file/d/1xGBAcez2SXWTB5yt6bhWwCKF3xif_dK8/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1xGBAcez2SXWTB5yt6bhWwCKF3xif_dK8/view?usp=drive_linkb"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button size="lg" className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 text-white hover:opacity-90">
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
               </Button>
@@ -143,7 +147,7 @@ const Index = () => {
           </div>
           
           <div className="mt-16 animate-bounce-subtle">
-            <ChevronDown className="h-6 w-6 text-white/60 mx-auto" />
+            <ChevronDown className="h-6 w-6 text-white/70 mx-auto" />
           </div>
         </div>
       </section>
@@ -170,7 +174,7 @@ const Index = () => {
             
             <div className="flex justify-center">
               <div className="glass-card p-8 rounded-2xl transform hover:scale-105 transition-transform duration-300">
-                <div className="w-64 h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-64 h-64 bg-gradient-to-tr from-pink-500 via-orange-400 to-yellow-300 rounded-full flex items-center justify-center">
                   <div className="text-8xl">👨‍💻</div>
                 </div>
               </div>
@@ -185,8 +189,8 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-white text-center mb-12">Skills & Technologies</h2>
           
           <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up ${isVisible.skills ? 'opacity-100' : 'opacity-0'}`}>
-            {skills.map((skill, index) => (
-              <Card key={skill.name} className="glass-card border-white/10 hover:border-blue-500/50 transition-all duration-300 group">
+            {skills.map((skill) => (
+              <Card key={skill.name} className="glass-card border-white/10 hover:border-pink-400/50 transition-all duration-300 group">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
                     {skill.icon}
@@ -194,7 +198,7 @@ const Index = () => {
                   <h3 className="text-white font-semibold mb-2">{skill.name}</h3>
                   <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
                     <div 
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out"
+                      className="bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 h-2 rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
@@ -212,10 +216,10 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-white text-center mb-12">Featured Projects</h2>
           
           <div className={`grid md:grid-cols-2 gap-8 animate-slide-up ${isVisible.projects ? 'opacity-100' : 'opacity-0'}`}>
-            {projects.map((project, index) => (
-              <Card key={project.title} className="glass-card border-white/10 hover:border-blue-500/50 transition-all duration-300 group">
+            {projects.map((project) => (
+              <Card key={project.title} className="glass-card border-white/10 hover:border-pink-400/50 transition-all duration-300 group">
                 <CardHeader>
-                  <CardTitle className="text-white group-hover:text-blue-400 transition-colors">
+                  <CardTitle className="text-white group-hover:text-pink-400 transition-colors">
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-gray-400">
@@ -225,68 +229,32 @@ const Index = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                      <Badge key={tech} variant="secondary" className="bg-pink-500/20 text-pink-300 border-pink-500/30">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   <div className="flex gap-2">
-                    {project.title === 'AI Chatbot with Gemini API' ? (
-                      <a
-                        href="https://github.com/Deepakps2004/Ai_chatbot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                          <Github className="mr-2 h-4 w-4" />
-                          Code
-                        </Button>
-                      </a>
-                    ) : project.title === 'Hotel Room Booking System' ? (
-                      <a
-                        href="https://github.com/Deepakps2004/Railwaypass_booking"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                          <Github className="mr-2 h-4 w-4" />
-                          Code
-                        </Button>
-                      </a>
-                    ) : project.title === 'Fully Functional Matrimony Site' ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                          <Github className="mr-2 h-4 w-4" />
-                          Code
-                        </Button>
-                      </a>
-                    ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
                         <Github className="mr-2 h-4 w-4" />
                         Code
                       </Button>
-                    )}
-                    {project.title === 'Fully Functional Matrimony Site' ? (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                          <ExternalLink className="mr-2 h-4 w-4" />
-                          Live Demo
-                        </Button>
-                      </a>
-                    ) : (
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button size="sm" className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90">
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Live Demo
                       </Button>
-                    )}
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -306,7 +274,7 @@ const Index = () => {
                 <div className="flex items-start justify-between">
                   <div>
                     <CardTitle className="text-white text-xl">Web Development Intern</CardTitle>
-                    <CardDescription className="text-blue-400 text-lg font-semibold">
+                    <CardDescription className="text-pink-400 text-lg font-semibold">
                       Zerame Infotech, Coimbatore
                     </CardDescription>
                   </div>
@@ -324,10 +292,10 @@ const Index = () => {
                     team to deliver high-quality web solutions.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Flask</Badge>
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Python</Badge>
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">HTML/CSS</Badge>
-                    <Badge variant="outline" className="border-purple-500/30 text-purple-300">Responsive Design</Badge>
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">Flask</Badge>
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">Python</Badge>
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">HTML/CSS</Badge>
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">Responsive Design</Badge>
                   </div>
                 </div>
               </CardContent>
@@ -350,9 +318,6 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-
-
-
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <Input 
@@ -373,14 +338,11 @@ const Index = () => {
                     rows={4}
                     className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
                   />
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                  <Button type="submit" className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90">
                     <Send className="mr-2 h-4 w-4" />
                     Send Message
                   </Button>
                 </form>
-                
-
-
                 
                 <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-white/10">
                   <a href="https://github.com/Deepakps2004" target="_blank" rel="noopener noreferrer">
@@ -406,11 +368,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-white/10">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 Deepak. Built with ❤️ using React & Next js
-          </p>
+      <footer className="py-8 border-t border-white/10 bg-black/30">
+        <div className="container mx-auto text-center text-gray-400">
+          <p>© 2025 Deepak. Built with ❤️ using React & Tailwind CSS.</p>
         </div>
       </footer>
     </div>
