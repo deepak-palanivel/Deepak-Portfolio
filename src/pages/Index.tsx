@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Moon, Sun, Download, Mail, Github, Linkedin, ExternalLink, 
-  ChevronDown, Send, Calendar
+  Send, Calendar, Layout, Server, BrainCircuit, Terminal 
 } from 'lucide-react';
 
 const Index = () => {
@@ -35,15 +35,28 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
-  const skills = [
-    { name: 'JavaScript', level: 90, icon: '🟨' },
-    { name: 'Python', level: 85, icon: '🐍' },
-    { name: 'React', level: 88, icon: '⚛️' },
-    { name: 'Node.js', level: 82, icon: '🟢' },
-    { name: 'MongoDB', level: 80, icon: '🍃' },
-    { name: 'TensorFlow', level: 75, icon: '🧠' },
-    { name: 'Scikit-learn', level: 78, icon: '📊' },
-    { name: 'HTML/CSS', level: 95, icon: '🎨' }
+  // --- NEW DATA STRUCTURE: Cluster-Style Skills ---
+  const skillCategories = [
+    {
+      title: "Frontend & Mobile",
+      icon: <Layout className="w-8 h-8 text-pink-500" />,
+      skills: ["React.js", "React Native", "Next.js", "Tailwind CSS", "JavaScript (ES6+)", "HTML5/CSS3"]
+    },
+    {
+      title: "Backend & Architecture",
+      icon: <Server className="w-8 h-8 text-purple-500" />,
+      skills: ["Node.js", "Express.js", "C# .NET", "MongoDB", "MySQL", "RESTful APIs"]
+    },
+    {
+      title: "AI & Machine Learning",
+      icon: <BrainCircuit className="w-8 h-8 text-yellow-500" />,
+      skills: ["Python", "TensorFlow", "Scikit-learn", "Gemini API", "NLP"]
+    },
+    {
+      title: "DevOps & QA",
+      icon: <Terminal className="w-8 h-8 text-blue-500" />,
+      skills: ["Git / GitHub", "Playwright", "Postman", "Docker", "VS Code"]
+    }
   ];
 
   const projects = [
@@ -56,28 +69,28 @@ const Index = () => {
     },
     {
       title: 'Fully Functional Matrimony Site',
-      description: 'A complete matrimony platform built with Apache, PHP, MySQL, and WordPress. Features user registration, profile management, search, and matchmaking. Deployed and live for real-world use.',
+      description: 'A complete matrimony platform built with Apache, PHP, MySQL, and WordPress. Features user registration, profile management, search, and matchmaking.',
       tech: ['Apache', 'PHP', 'MySQL', 'WordPress'],
       github: 'http://sendhurvelanmatrimony.com/',
       live: 'http://sendhurvelanmatrimony.com/'
     },
     {
       title: 'Railway Pass Booking Web App',
-      description: 'A simple, static web-based front-end concept simulating the experience of booking a railway pass. Pure HTML, IRCTC-inspired UI, responsive design, and custom imagery. Great for beginners and UI/UX showcases.',
-      tech: ['HTML','CSS', 'Tailwind CSS', 'Responsive Design', 'UI/UX'],
+      description: 'A simple, static web-based front-end concept simulating the experience of booking a railway pass. Pure HTML, IRCTC-inspired UI, responsive design.',
+      tech: ['HTML', 'Tailwind CSS', 'UI/UX'],
       github: 'https://github.com/Deepakps2004/Railwaypass_booking',
       live: 'https://github.com/Deepakps2004/Railwaypass_booking'
     },
     {
       title: 'Student Connected Learning Platform',
-      description: 'A React Native and Firebase based platform for students to connect, collaborate, and learn together. Features include real-time chat, resource sharing, and personalized learning tools.',
+      description: 'A React Native and Firebase based platform for students to connect, collaborate, and learn together. Features real-time chat and resource sharing.',
       tech: ['React Native', 'Firebase'],
       github: 'https://github.com/Deepakps2004/onespot',
       live: 'https://github.com/Deepakps2004/onespot'
     },
     {
       title: 'AI Resume Builder',
-      description: 'Create professional resumes with AI assistance. Auto-saved progress, AI-enhanced summaries, and live preview for a seamless resume building experience.',
+      description: 'Create professional resumes with AI assistance. Auto-saved progress, AI-enhanced summaries, and live preview.',
       tech: ['Next.js', 'Tailwind CSS', 'AI Integration'],
       github: 'https://ai-resume-builderr.vercel.app/',
       live: 'https://ai-resume-builderr.vercel.app/'
@@ -97,7 +110,7 @@ const Index = () => {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-xl font-bold gradient-text">Deepak</div>
+          <div className="text-xl font-bold gradient-text text-white">Deepak</div>
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
@@ -119,10 +132,10 @@ const Index = () => {
               Hi, I'm <span className="bg-gradient-to-r from-pink-400 via-orange-300 to-yellow-300 bg-clip-text text-transparent">Deepak</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
-              MCA Student | Web & ML Developer
+              Freelance Full-Stack Developer | SaaS & Mobile App Architect
             </p>
             <p className="text-lg text-gray-300 max-w-xl mx-auto italic">
-              "Building smart web apps with clean code and chaotic curiosity."
+              Turning complex ideas into scalable SaaS tools and seamless digital experiences
             </p>
           </div>
           
@@ -145,10 +158,6 @@ const Index = () => {
               </Button>
             </a>
           </div>
-          
-          <div className="mt-16 animate-bounce-subtle">
-            <ChevronDown className="h-6 w-6 text-white/70 mx-auto" />
-          </div>
         </div>
       </section>
 
@@ -160,14 +169,10 @@ const Index = () => {
               <h2 className="text-4xl font-bold text-white mb-6">About Me</h2>
               <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
                 <p>
-                  I'm an emotionally intelligent techie who thrives on blending code, chaos, and curiosity. 
-                  As an MCA student specializing in Web Development and Machine Learning, I believe in 
-                  creating solutions that are not just functional, but intuitive and impactful.
+                  I am a Freelance Software Engineer who thrives on transforming abstract concepts into production-ready business solutions. With a strong foundation in Computer Applications (MCA) and a specialized focus on the MERN stack and .NET ecosystem, I build software that works for you.
                 </p>
                 <p>
-                  My journey involves transforming complex problems into elegant solutions, whether it's 
-                  building responsive web applications or developing intelligent ML models. I'm passionate 
-                  about the intersection of technology and human experience.
+                 I don't just write code; I partner with startups and businesses to create scalable SaaS platforms, responsive mobile applications, and high-performance websites. My approach blends technical precision with emotional intelligence—ensuring the final product is not only bug-free but also intuitive and user-centric.
                 </p>
               </div>
             </div>
@@ -183,26 +188,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* --- REFACTORED SKILLS SECTION (Cluster Style) --- */}
       <section id="skills" className="section-padding">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Skills & Technologies</h2>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Technical Expertise</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              A comprehensive toolkit designed to build scalable SaaS products and intelligent applications.
+            </p>
+          </div>
           
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up ${isVisible.skills ? 'opacity-100' : 'opacity-0'}`}>
-            {skills.map((skill) => (
-              <Card key={skill.name} className="glass-card border-white/10 hover:border-pink-400/50 transition-all duration-300 group">
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {skill.icon}
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 animate-slide-up ${isVisible.skills ? 'opacity-100' : 'opacity-0'}`}>
+            {skillCategories.map((category) => (
+              <Card 
+                key={category.title} 
+                className="glass-card bg-white/5 border border-white/10 hover:border-pink-500/30 transition-all duration-300 group overflow-hidden relative"
+              >
+                 {/* Subtle Gradient Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-pink-400 transition-colors">
+                      {category.title}
+                    </h3>
                   </div>
-                  <h3 className="text-white font-semibold mb-2">{skill.name}</h3>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
-                    <div 
-                      className="bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
+
+                  <div className="flex flex-wrap gap-3">
+                    {category.skills.map((skill) => (
+                      <span 
+                        key={skill}
+                        className="px-3 py-1.5 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-full 
+                                 hover:bg-pink-500/20 hover:text-white hover:border-pink-500/30 transition-all duration-300 cursor-default"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                  <span className="text-gray-400 text-sm">{skill.level}%</span>
                 </CardContent>
               </Card>
             ))}
@@ -263,22 +288,56 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* Experience Section - UPDATED WITH FREELANCE ROLE */}
       <section id="experience" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white text-center mb-12">Experience</h2>
           
-          <div className={`max-w-3xl mx-auto animate-slide-up ${isVisible.experience ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`max-w-3xl mx-auto space-y-6 animate-slide-up ${isVisible.experience ? 'opacity-100' : 'opacity-0'}`}>
+            
+            {/* Freelance Role */}
+            <Card className="glass-card border-white/10 hover:border-pink-500/30 transition-colors">
+              <CardHeader>
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                  <div>
+                    <CardTitle className="text-white text-xl">Freelance Full-Stack Developer</CardTitle>
+                    <CardDescription className="text-pink-400 text-lg font-semibold">
+                      Remote / Self-Employed
+                    </CardDescription>
+                  </div>
+                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 w-fit">
+                    <Calendar className="mr-1 h-3 w-3" />
+                    Current
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-gray-300">
+                    Architecting and building custom SaaS tools and mobile applications for diverse clients. 
+                    Specializing in translating business requirements into technical specifications and deliverable 
+                    milestones using the MERN stack and .NET ecosystem.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">SaaS</Badge>
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">React Native</Badge>
+                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">.NET</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Intern Role */}
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <div className="flex items-start justify-between">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                   <div>
                     <CardTitle className="text-white text-xl">Web Development Intern</CardTitle>
                     <CardDescription className="text-pink-400 text-lg font-semibold">
                       Zerame Infotech, Coimbatore
                     </CardDescription>
                   </div>
-                  <Badge className="bg-green-500/20 text-green-300 border-green-500/30">
+                  <Badge className="bg-green-500/20 text-green-300 border-green-500/30 w-fit">
                     <Calendar className="mr-1 h-3 w-3" />
                     1 Month
                   </Badge>
@@ -295,11 +354,11 @@ const Index = () => {
                     <Badge variant="outline" className="border-pink-500/30 text-pink-300">Flask</Badge>
                     <Badge variant="outline" className="border-pink-500/30 text-pink-300">Python</Badge>
                     <Badge variant="outline" className="border-pink-500/30 text-pink-300">HTML/CSS</Badge>
-                    <Badge variant="outline" className="border-pink-500/30 text-pink-300">Responsive Design</Badge>
                   </div>
                 </div>
               </CardContent>
             </Card>
+
           </div>
         </div>
       </section>
@@ -370,7 +429,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-white/10 bg-black/30">
         <div className="container mx-auto text-center text-gray-400">
-          <p>© 2025 Deepak. Built with ❤️ using React & Tailwind CSS.</p>
+          <p>© 2025 Deepak. Engineered for performance.</p>
         </div>
       </footer>
     </div>
