@@ -66,14 +66,14 @@ const Index: React.FC = () => {
       title: 'AI Resume Builder',
       description: 'Production-ready resume authoring platform powered by AI suggestions, live template rendering, automated formatting, and instant PDF exports.',
       tech: ['Next.js', 'Tailwind CSS', 'AI Integration'],
-      github: 'https://ai-resume-builderr.vercel.app/',
+      github: '#',
       live: 'https://ai-resume-builderr.vercel.app/'
     },
     {
       title: 'Fully Functional Matrimony Site',
       description: 'A complete commercial matrimony platform built with Apache, PHP, MySQL, and WordPress. Features secure user registration, profile management, and matchmaking algorithms.',
       tech: ['Apache', 'PHP', 'MySQL', 'WordPress'],
-      github: 'http://sendhurvelanmatrimony.com/',
+      github: '#',
       live: 'http://sendhurvelanmatrimony.com/'
     }
   ];
