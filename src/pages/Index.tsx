@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { 
   Download, Mail, Github, Linkedin, ExternalLink, 
   Send, Calendar, Layout, Server, BrainCircuit, Terminal,
-  ArrowUpRight, Code2, Sparkles, CheckCircle2, ChevronRight
+  ArrowUpRight, Code2
 } from 'lucide-react';
 import { Hero3DCanvas } from "@/components/Hero3DCanvas";
 import { TiltCard3D } from "@/components/TiltCard3D";
@@ -21,55 +21,46 @@ const Index: React.FC = () => {
 
   const skillCategories = [
     {
-      title: "FRONTEND & MOBILE",
-      icon: <Layout className="w-6 h-6 text-black" />,
-      skills: ["React.js", "React Native", "Next.js", "Tailwind CSS", "JavaScript (ES6+)", "HTML5/CSS3"]
+      title: "LANGUAGES & CORE",
+      icon: <Code2 className="w-6 h-6 text-black" />,
+      skills: ["JavaScript (ES6+)", "TypeScript", "Python", "C#", "HTML5", "CSS3"]
     },
     {
-      title: "BACKEND & ARCHITECTURE",
+      title: "FRONTEND & MOBILE",
+      icon: <Layout className="w-6 h-6 text-black" />,
+      skills: ["React.js", "React Native", "Next.js", "Redux", "Tailwind CSS", "Bootstrap", "Responsive Design"]
+    },
+    {
+      title: "BACKEND",
       icon: <Server className="w-6 h-6 text-black" />,
-      skills: ["Node.js", "Express.js", "C# .NET", "MongoDB", "MySQL", "RESTful APIs"]
+      skills: ["Node.js", "Express.js", "C# .NET", "MongoDB", "MySQL", "Redis", "Kafka", "JWT Authentication"]
     },
     {
       title: "AI & MACHINE LEARNING",
       icon: <BrainCircuit className="w-6 h-6 text-black" />,
-      skills: ["Python", "TensorFlow", "Scikit-learn", "Gemini API", "NLP"]
+      skills: ["OpenAI API", "Gemini API", "RAG", "RNA", "Keras", "TensorFlow Lite", "LangChain", "Edge AI", "Streamlit", "Local LLMs", "Pandas"]
     },
     {
       title: "DEVOPS & QA",
       icon: <Terminal className="w-6 h-6 text-black" />,
-      skills: ["Git / GitHub", "Playwright", "Postman", "Docker", "VS Code"]
+      skills: ["Git / GitHub", "Docker", "Kubernetes", "Postman", "Playwright", "Firebase", "GCP", "Vercel", "Figma"]
     }
   ];
 
   const projects = [
     {
-      title: 'AI Chatbot with Gemini API',
-      description: 'Intelligent conversational AI built with Google\'s Gemini API, featuring natural language processing, context persistence, and lightning-fast streaming responses.',
-      tech: ['JavaScript', 'Gemini API', 'React', 'Node.js'],
-      github: 'https://github.com/Deepakps2004/Ai_chatbot',
+      title: 'VisionMate – On-Device Navigation Assistant',
+      description: 'An AI-powered mobile assistive system developed to support visually impaired individuals through real-time environmental understanding and audible guidance. Combines object detection, Optical Character Recognition (OCR), edge AI, and speech synthesis within a cross-platform smartphone app. Powered by TensorFlow Lite for on-device inference with low latency, reduced internet dependency, and TalkBack / VoiceOver integration.',
+      tech: ['React Native', 'TensorFlow Lite', 'Edge AI', 'OCR', 'Text-to-Speech'],
+      github: 'https://github.com/deepak-palanivel/VisionMate',
       live: '#'
     },
     {
-      title: 'Fully Functional Matrimony Site',
-      description: 'A complete commercial matrimony platform built with Apache, PHP, MySQL, and WordPress. Features secure user registration, profile management, and matchmaking algorithms.',
-      tech: ['Apache', 'PHP', 'MySQL', 'WordPress'],
-      github: 'http://sendhurvelanmatrimony.com/',
-      live: 'http://sendhurvelanmatrimony.com/'
-    },
-    {
-      title: 'Railway Pass Booking Web App',
-      description: 'A front-end ticketing application simulating the digital experience of purchasing and verifying transit passes with responsive UI and modern form flows.',
-      tech: ['HTML5', 'Tailwind CSS', 'UI/UX'],
-      github: 'https://github.com/Deepakps2004/Railwaypass_booking',
-      live: 'https://github.com/Deepakps2004/Railwaypass_booking'
-    },
-    {
-      title: 'Student Connected Learning Platform',
-      description: 'A React Native and Firebase based platform for student networking, team collaboration, live group discussions, and academic resource sharing.',
-      tech: ['React Native', 'Firebase', 'Realtime DB'],
-      github: 'https://github.com/Deepakps2004/onespot',
-      live: 'https://github.com/Deepakps2004/onespot'
+      title: 'MyNamakkal – Hyperlocal Food Ordering Platform',
+      description: 'A tailored food delivery and restaurant aggregation platform engineered specifically for rural regions and Tier-3 cities, bringing regional culinary vendors and rural consumers together through localized UX and high-reliability order workflows.',
+      tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+      github: 'https://github.com/deepak-palanivel/MyNamakkal',
+      live: '#'
     },
     {
       title: 'AI Resume Builder',
@@ -77,6 +68,13 @@ const Index: React.FC = () => {
       tech: ['Next.js', 'Tailwind CSS', 'AI Integration'],
       github: 'https://ai-resume-builderr.vercel.app/',
       live: 'https://ai-resume-builderr.vercel.app/'
+    },
+    {
+      title: 'Fully Functional Matrimony Site',
+      description: 'A complete commercial matrimony platform built with Apache, PHP, MySQL, and WordPress. Features secure user registration, profile management, and matchmaking algorithms.',
+      tech: ['Apache', 'PHP', 'MySQL', 'WordPress'],
+      github: 'http://sendhurvelanmatrimony.com/',
+      live: 'http://sendhurvelanmatrimony.com/'
     }
   ];
 
@@ -133,7 +131,7 @@ const Index: React.FC = () => {
               <MotionBlurReveal direction="left" delay={0.1}>
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-black text-white text-xs font-mono tracking-widest uppercase mb-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  AVAILABLE FOR FREELANCE & SAAS CONTRACTS
+                  AVAILABLE FOR FULL-TIME & CONTRACT ROLES
                 </div>
               </MotionBlurReveal>
 
@@ -155,7 +153,7 @@ const Index: React.FC = () => {
 
               <MotionBlurReveal direction="up" delay={0.45}>
                 <p className="text-lg sm:text-xl text-neutral-700 max-w-xl font-medium leading-relaxed">
-                  Transforming ambitious ideas into scalable SaaS platforms, intelligent AI systems, and high-precision full-stack architectures.
+                  Transforming ambitious ideas into scalable SaaS platforms, edge AI systems, and high-precision full-stack architectures.
                 </p>
               </MotionBlurReveal>
 
@@ -163,7 +161,7 @@ const Index: React.FC = () => {
               <MotionBlurReveal direction="up" delay={0.55}>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <a
-                    href="https://drive.google.com/file/d/1xGBAcez2SXWTB5yt6bhWwCKF3xif_dK8/view?usp=drive_linkb"
+                    href="https://drive.google.com/file/d/1-8zoq2pHMcI1Vu5T946NJ6p9YBx--IYg/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -198,11 +196,11 @@ const Index: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-2xl sm:text-3xl font-black text-black">MERN + .NET</div>
-                    <div className="text-xs uppercase text-neutral-500 font-bold mt-1">Core Arsenal</div>
+                    <div className="text-xs uppercase text-neutral-500 font-bold mt-1">Core Stack</div>
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black text-black">AI READY</div>
-                    <div className="text-xs uppercase text-neutral-500 font-bold mt-1">Gemini & ML</div>
+                    <div className="text-2xl sm:text-3xl font-black text-black">EDGE AI</div>
+                    <div className="text-xs uppercase text-neutral-500 font-bold mt-1">TF Lite & RAG</div>
                   </div>
                 </div>
               </MotionBlurReveal>
@@ -255,19 +253,19 @@ const Index: React.FC = () => {
             <div className="md:col-span-7 space-y-6 text-neutral-800 text-lg sm:text-xl leading-relaxed font-normal">
               <MotionBlurReveal direction="up" delay={0.2}>
                 <p className="font-semibold text-black text-2xl sm:text-3xl leading-snug tracking-tight">
-                  I am a Freelance Software Engineer who turns abstract business concepts into rock-solid, production-grade applications.
+                  I am a Full-Stack Software Engineer who turns ambitious technical concepts into rock-solid, production-grade applications.
                 </p>
               </MotionBlurReveal>
 
               <MotionBlurReveal direction="up" delay={0.3}>
                 <p>
-                  With a master’s background in Computer Applications (MCA) and hands-on depth across the full JavaScript ecosystem, React Native, and enterprise C# .NET, I engineer tools that are performant, resilient, and ready for commercial scale.
+                  With a master’s background in Computer Applications (MCA) and hands-on depth across the full JavaScript ecosystem, React Native, Edge AI, and enterprise C# .NET, I engineer tools that are performant, resilient, and ready for commercial scale.
                 </p>
               </MotionBlurReveal>
 
               <MotionBlurReveal direction="up" delay={0.4}>
                 <p>
-                  I don't just ship syntax; I partner directly with founders, growing teams, and businesses. My architectural approach blends clean engineering standards with intuitive product instincts—ensuring each digital solution is fast, bulletproof, and effortless for users.
+                  My architectural approach blends clean engineering standards with intuitive product instincts—ensuring each digital solution is fast, bulletproof, and effortless for users across web and mobile surfaces.
                 </p>
               </MotionBlurReveal>
 
@@ -310,7 +308,7 @@ const Index: React.FC = () => {
                       </div>
                       <div className="flex justify-between border-b border-neutral-800 pb-2">
                         <span className="text-neutral-400">SPECIALTY:</span>
-                        <span className="font-bold text-white">SAAS, MOBILE & AI</span>
+                        <span className="font-bold text-white">SAAS, MOBILE & EDGE AI</span>
                       </div>
                       <div className="flex justify-between border-b border-neutral-800 pb-2">
                         <span className="text-neutral-400">AVAILABILITY:</span>
@@ -349,11 +347,11 @@ const Index: React.FC = () => {
             </div>
           </MotionBlurReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, idx) => (
-              <MotionBlurReveal key={category.title} direction="up" delay={0.15 * (idx + 1)}>
+              <MotionBlurReveal key={category.title} direction="up" delay={0.1 * (idx + 1)}>
                 <TiltCard3D>
-                  <Card className="rounded-none border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                  <Card className="rounded-none border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 h-full flex flex-col">
                     <CardHeader className="border-b-2 border-black bg-neutral-50 pb-4">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -368,12 +366,12 @@ const Index: React.FC = () => {
                       </div>
                     </CardHeader>
                     
-                    <CardContent className="p-6 sm:p-8">
+                    <CardContent className="p-6 sm:p-8 flex-1">
                       <div className="flex flex-wrap gap-2.5">
                         {category.skills.map((skill) => (
                           <span
                             key={skill}
-                            className="px-3.5 py-2 text-xs sm:text-sm font-mono font-bold text-black bg-neutral-100 border border-black rounded-none hover:bg-black hover:text-white transition-colors duration-150 cursor-default"
+                            className="px-3 py-1.5 text-xs sm:text-sm font-mono font-bold text-black bg-neutral-100 border border-black rounded-none hover:bg-black hover:text-white transition-colors duration-150 cursor-default"
                           >
                             {skill}
                           </span>
@@ -400,7 +398,7 @@ const Index: React.FC = () => {
                 FEATURED WORKS
               </h2>
               <p className="text-neutral-600 font-mono text-sm max-w-md">
-                A SHOWCASE OF PRODUCTION SYSTEMS, SAAS PROTOTYPES, AND AI AGENTS.
+                A SHOWCASE OF PRODUCTION SYSTEMS, SAAS PLATFORMS, AND ON-DEVICE EDGE AI.
               </p>
             </div>
           </MotionBlurReveal>
@@ -454,7 +452,7 @@ const Index: React.FC = () => {
                               className="w-full rounded-none border border-black bg-white text-black font-mono font-bold text-xs uppercase hover:bg-black hover:text-white transition-colors"
                             >
                               <Github className="mr-2 h-4 w-4" />
-                              Source
+                              Source Code
                             </Button>
                           </a>
                         )}
@@ -497,72 +495,55 @@ const Index: React.FC = () => {
                 EXPERIENCE
               </h2>
               <p className="text-neutral-600 font-mono text-sm max-w-md">
-                COMMERCIAL FREELANCE CONTRACTS AND INDUSTRIAL SOFTWARE INTERNSHIPS.
+                ENGINEERING INDUSTRY PRACTICES, PRODUCTION CODEBASES & CLIENT SOLUTIONS.
               </p>
             </div>
           </MotionBlurReveal>
 
           <div className="max-w-4xl mx-auto space-y-8">
             
-            {/* Freelance Role */}
+            {/* Full Stack Developer Intern | Softye Technologies */}
             <MotionBlurReveal direction="up" delay={0.2}>
               <TiltCard3D>
                 <Card className="rounded-none border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-6 sm:p-8">
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b-2 border-black pb-4 mb-4">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b-2 border-black pb-4 mb-6">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-black text-black uppercase tracking-tight">
-                        Freelance Full-Stack Developer
+                        Full Stack Developer Intern
                       </h3>
                       <div className="font-mono text-sm font-bold text-neutral-600 mt-1">
-                        REMOTE / INDEPENDENT CONTRACTOR
+                        SOFTYE TECHNOLOGIES • ON-SITE
                       </div>
                     </div>
-                    <Badge className="bg-black text-white font-mono text-xs uppercase px-3 py-1 rounded-none border border-black w-fit">
+                    <Badge className="bg-black text-white font-mono text-xs uppercase px-3 py-1.5 rounded-none border border-black w-fit">
                       <Calendar className="mr-1.5 h-3.5 w-3.5" />
-                      Current
+                      Sept 2025 – Nov 2025
                     </Badge>
                   </div>
 
-                  <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-6">
-                    Architecting and deploying custom SaaS tools, responsive web applications, and mobile products for founders and business clients. Specializing in translating user requirements into production milestones using modern JavaScript (React/Next.js/Node) and the .NET enterprise stack.
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {["SaaS Architecture", "React Native", "Node.js", ".NET Core", "Database Modeling", "API Integration"].map((item) => (
-                      <span key={item} className="px-3 py-1 bg-neutral-100 border border-black font-mono text-xs font-bold text-black">
-                        {item}
+                  <div className="space-y-4 text-neutral-700 text-base sm:text-lg leading-relaxed mb-6">
+                    <p className="flex items-start gap-3">
+                      <span className="text-black font-black mt-1">▸</span>
+                      <span>
+                        Engineered scalable full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js), delivering responsive UI modules and robust RESTful API endpoints for client enterprise solutions.
                       </span>
-                    ))}
-                  </div>
-                </Card>
-              </TiltCard3D>
-            </MotionBlurReveal>
-
-            {/* Intern Role */}
-            <MotionBlurReveal direction="up" delay={0.35}>
-              <TiltCard3D>
-                <Card className="rounded-none border-2 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-6 sm:p-8">
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b-2 border-black pb-4 mb-4">
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-black text-black uppercase tracking-tight">
-                        Web Development Intern
-                      </h3>
-                      <div className="font-mono text-sm font-bold text-neutral-600 mt-1">
-                        ZERAME INFOTECH, COIMBATORE
-                      </div>
-                    </div>
-                    <Badge className="bg-neutral-200 text-black font-mono text-xs uppercase px-3 py-1 rounded-none border border-black w-fit">
-                      <Calendar className="mr-1.5 h-3.5 w-3.5" />
-                      1 Month Intensive
-                    </Badge>
+                    </p>
+                    <p className="flex items-start gap-3">
+                      <span className="text-black font-black mt-1">▸</span>
+                      <span>
+                        Refactored production codebases applying SOLID design principles, modular component architecture, and clean code standards, reducing technical debt and improving long-term code maintainability by ~25%.
+                      </span>
+                    </p>
+                    <p className="flex items-start gap-3">
+                      <span className="text-black font-black mt-1">▸</span>
+                      <span>
+                        Implemented secure authentication, integrated JWT-based role authorization and Redux to ensure data security and smooth user experiences across multi-tenant features.
+                      </span>
+                    </p>
                   </div>
 
-                  <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-6">
-                    Gained direct industry exposure to software development cycles, contributing to Python Flask web applications and responsive client-side interfaces. Collaborated with senior developers on frontend fidelity and backend service endpoints.
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {["Python", "Flask", "HTML5/CSS3", "JavaScript", "Responsive Design"].map((item) => (
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-neutral-200">
+                    {["MERN Stack", "React.js", "Node.js", "Express.js", "MongoDB", "Redux", "JWT Auth", "RESTful APIs", "SOLID Principles"].map((item) => (
                       <span key={item} className="px-3 py-1 bg-neutral-100 border border-black font-mono text-xs font-bold text-black">
                         {item}
                       </span>
@@ -587,7 +568,7 @@ const Index: React.FC = () => {
               GET IN TOUCH
             </h2>
             <p className="text-neutral-600 font-mono text-sm max-w-lg mb-16">
-              HAVE A SAAS PROJECT, MOBILE APP, OR FREELANCE ROLE? DROP A MESSAGE BELOW.
+              HAVE A SAAS PROJECT, MOBILE APP, OR FULL-STACK OPPORTUNITY? DROP A MESSAGE BELOW.
             </p>
           </MotionBlurReveal>
 
@@ -643,13 +624,13 @@ const Index: React.FC = () => {
 
                 {/* Direct Social Links */}
                 <div className="mt-10 pt-6 border-t-2 border-black flex flex-wrap justify-center gap-4">
-                  <a href="https://github.com/Deepakps2004" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/deepak-palanivel/" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="rounded-none border border-black bg-white text-black font-mono font-bold text-xs uppercase hover:bg-black hover:text-white transition-colors">
                       <Github className="mr-2 h-4 w-4" />
                       GitHub
                     </Button>
                   </a>
-                  <a href="https://www.linkedin.com/in/deepakps1/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/deepak-palanivel-1615272ab/" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="rounded-none border border-black bg-white text-black font-mono font-bold text-xs uppercase hover:bg-black hover:text-white transition-colors">
                       <Linkedin className="mr-2 h-4 w-4" />
                       LinkedIn
